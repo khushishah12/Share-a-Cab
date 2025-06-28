@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share-a-Cab - Find & Share Rides</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f7f7;
+		justify-content: center;
+        }
+       	header 
+	{
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+	/* Responsive grid container */
+        .container 
+	{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 20px;
+		padding: 20px;
+		text-align: center;
+        }
+        .feature-box {
+            background: violet;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+        }
+        .feature-box i {
+            font-size: 3rem;
+            color: #ff5733;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #ff9966;
+            color: white;
+            text-align: center;
+            padding: 10px 10px;
+        }
+        .testimonial {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            color: #ff9900;
+        }
+	/* Hero Section Styling */
+	.hero-section {
+		position: relative;
+		width: 100%;
+		height: 100vh; /* Full height of the viewport */
+		background-image: url('images/hero-image.jpg'); /* Your hero image */
+		background-size: cover;
+		background-position: center;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	/* Content inside the hero section */
+	.hero-content 
+	{
+  		max-width: 800px;
+	  	padding: 20px;
+  		background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+	  	border-radius: 10px;
+	}
+	.hero-content h1 
+	{
+		font-size: 3em;
+		margin-bottom: 20px;
+	}
+	.hero-content p 
+	{
+  		font-size: 1.2em;
+		margin-bottom: 30px;
+	}
+	.cta-button 
+	{
+  		font-size: 1.1em;
+  		padding: 12px 25px;
+  		background-color: #ff6600; /* CTA button color */
+  		color: white;
+  		text-decoration: none;
+  		border-radius: 5px;
+  		transition: background-color 0.3s;
+	}
+	.cta-button:hover 
+	{
+  		background-color: #cc5200; /* Darker shade on hover */
+	}
+
+	.hero1-section {
+		position: relative;
+		width: 100%;
+		height: 100vh; /* Full height of the viewport */
+		background-size: cover;
+		background-position: center;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	/* Content inside the hero section */
+	.hero1-content 
+	{
+  		width: 95%;
+		height: 95vh; /* Full height of the viewport */
+	  	padding: 5px;
+  		background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+	  	border-radius: 10px;
+	}
+	.hero1-content h1 
+	{
+		font-size: 3em;
+		margin-bottom: 2px;
+	}
+	h4 
+	{
+  		font-size: 1.2em;
+		margin-bottom: 12px;
+		padding: 15px;
+	}
+	
+	
+	.feedback-container 
+	{
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 20px;
+		padding: 20px;
+		justify-content: center;
+		
+		text-align: center;
+	    	background: #bb2266;
+        }
+	p {
+  		color: navy;
+  		font-size: 1.2em;
+		margin-bottom: 2px;
+  		
+		}
+        .feedback {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            border: 2px solid #ddd;
+        }
+	
+	.user-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .stars {
+            color: gold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+
+	
+
+
+
+
+
+
+	/* Style the tab */
+	.tab 
+	{
+		overflow: hidden;
+		border: 1px solid #9b59b6;
+		background-color: #f1f1f1;
+	}
+	/* Style the buttons inside the tab */
+	.tab button 
+	{
+		background-color: inherit;
+		float: left;
+		border: 1px solid #9b59b6;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+	/* Change background color of buttons on hover */
+	.tab button:hover 
+	{
+  		background-color: #9b89b6;
+	}
+	/* Create an active/current tablink class */
+	.tab button.active 
+	{
+		background-color: #9b59b6;
+		color: white;
+	}
+	/* Style the tab content */
+	.tabcontent 
+	{
+		display: none;
+		padding: 6px 12px;
+		border: 1px solid #9b59b6;
+		border-top: none;
+	}
+	.grid 
+	{
+		position: relative;
+		border: 1px solid #000;
+		padding-top: 37px;
+		background: #B34C00;
+		width:100%;
+	}
+	.grid-container 
+	{
+		overflow-y: auto;
+		height: 400px;
+	}
+	
+	table 
+	{
+		border-spacing: 0;
+		width:100%;
+	}
+	td + td 
+	{
+		border-left:1px solid #000;
+	}
+	td, th 
+	{
+		border-bottom:1px solid #000;
+		background: #fff;
+		color: #000;
+		padding: 10px 25px;
+	}
+	th 
+	{
+		height: 0;
+		line-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		color: transparent;
+		border: none;
+		white-space: nowrap;
+	}
+	th div
+	{
+		position: absolute;
+		background: transparent;
+		color: #fff;
+		padding: 9px 25px;
+		top: 0;
+		margin-left: -25px;
+		line-height: normal;
+		border-left: 1px solid #800;
+		
+	}
+    </style>
+</head>
+<body>
+<section class="hero-section">
+    <div class="hero-content">
+      	<h1>Share a Cab </h1>
+      	<h4>If we could all carpool, it would cut down the number of cars on the road to a great extent; means there would be less emission of carbon into the air, causing less pollution, and a cleaner environment.</h4>
+	<a href="login.html" class="cta-button">Login to Book</a>
+    </div>
+  </section>
+<!--
+
+<section  class="hero-section">	
+ <div class="Whero-content-1">
+      <h1>Share a Cab </h1>
+      <p>If we could all carpool, it would cut down the number of cars on the road to a great extent; mean there would be less emission of carbon into the air, causing less pollution, and a cleaner environment.</p>
+  <div class="slider-container">
+      <div class="slider">
+        <img src="images\yellowHatchbackTaxi.png" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+	<img src="images\yellowSedanTaxi.png" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+	<img src="images\yellowSedanElectricTataTaxi.png" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+	<img src="images\yellowSuvTaxi.png" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+	<img src="images\yellowSuvElectricPremium.jpg" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+	<img src="images\yellowSuvLuxury.png" alt="Image 1" class="slider-image" height=600 px; width=700 px;>
+      </div>
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+-->
+<section class="hero1-section">
+	<div class="hero1-content">
+		<h1>Our Fleet for Airport Taxi </h1>
+		<p>Lowest Fare at Airport Taxi in India</p>
+		<div>
+		<div class="tab"> 
+			<button class="tablinks" onclick="openAir(event, 'SVPIA')" id="defaultOpen">Sardar Vallabhbhai Patel Intl Airport </button>
+			<button class="tablinks" onclick="openAir(event, 'RIA')">Rajkot Intl Airport </button>
+			<button class="tablinks" onclick="openAir(event, 'SIA')">Surat Intl Airport </button>
+			<button class="tablinks" onclick="openAir(event, 'VIA')">Vadodara Intl Airport </button>
+		</div>
+		<div id="SVPIA" class="tabcontent">
+			<div class="grid">
+				<div class="grid-container" >
+				<table >
+		                	<thead>
+						<tr>
+							<th><div>City</div></th>
+							<th><div> Included kms</div> </th>
+							<th><div>Price</div></th>
+						</tr>
+					</thead>
+			                <tbody>
+		                			<tr>
+								<td>Ahmedabad</td>
+								<td>15km</td>
+								<td>265.53</td>
+								
+							</tr>
+							<tr>
+								<td>Surat</td>
+								<td>266.7km</td>
+								<td>3157</td>
+							</tr>
+							<tr><td>Vadodara (Baroda)</td><td>119.1km</td><td>1350</td></tr>
+							<tr><td>Rajkot</td><td>227.8km</td><td>2525</td></tr>
+							<tr><td>Junagadh</td><td>328.2km</td><td>5131</td></tr>
+							<tr><td>Bhavnagar</td><td>183.8km</td><td>2757</td></tr>
+							<tr><td>Jamnagar</td><td>319.1km</td><td>4148</td></tr>
+							<tr><td>Anand</td><td>80.9km</td><td>1521</td></tr>
+							<tr><td>Mehsana</td><td>75.3km</td><td>1315</td></tr>
+							<tr><td>Bharuch</td><td>197.2km</td><td>2290</td></tr>
+							<tr><td>Navsari</td><td>294.4km</td><td>4040</td></tr>
+							<tr><td>Morvi</td><td>221.5km</td><td>3159</td></tr>
+							<tr><td>Porbandar</td><td>408.6km</td><td>6411</td></tr>
+							<tr>
+								<td>Nadiad</td>
+								<td>66.3km</td>
+								<td>1187</td>
+							</tr>
+							<tr>
+								<td>Gandhidham</td>
+								<td>299.1km</td>
+								<td>4396</td>
+							</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+		<div id="RIA" class="tabcontent">
+			<div class="grid">
+				<div class="grid-container" >
+					<table>
+                				<thead>
+							<tr>
+								<th><div>City</div></th>
+								<th><div> Included kms</div> </th>
+								<th><div>Price</div></th>
+							</tr>
+						</thead>
+				                <tbody>
+							<tr><td>Ahmedabad</td><td>197.7km</td><td>2407</td></tr>
+							<tr><td>Surat</td><td>408.5km</td><td>7271</td></tr>
+							<tr><td>Vadodara (Baroda)</td><td>260.3km</td><td>5023</td></tr>
+							<tr><td>Rajkot</td><td>28.9km</td><td>558.71</td></tr>
+							<tr><td>Junagadh</td><td>129.4km</td><td>2571</td></tr>
+							<tr><td>Bhavnagar</td><td>185.8km</td><td>3072</td></tr>
+							<tr><td>Jamnagar</td><td>120.2km</td><td>1425</td></tr>
+							<tr><td>Anand</td><td>227.8km</td><td>4282</td></tr>
+							<tr><td>Mehsana</td><td>267.6km</td><td>3973</td></tr>
+							<tr><td>Bharuch</td><td>338.7km</td><td>7378</td></tr>
+							<tr><td>Navsari</td><td>435.8km</td><td>7933</td></tr>
+							<tr><td>Morvi</td><td>69.4km</td><td>1266</td></tr>
+							<tr><td>Porbandar</td><td>209.7km</td><td>4140</td></tr>
+							<tr><td>Nadiad</td><td>209.5km</td><td>4467</td></tr>
+							<tr><td>Gandhidham</td><td>189.4km</td><td>3545</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="SIA" class="tabcontent">
+			<div class="grid">
+				<div class="grid-container" >
+					<table>
+                				<thead>
+							<tr>
+								<th><div>City</div></th>
+								<th><div> Included kms</div> </th>
+								<th><div>Price</div></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>Ahmedabad</td><td>283.3km</td><td>2929</td></tr>
+							<tr><td>Surat</td><td>20km</td><td>357.6</td></tr>
+							<tr><td>Vadodara (Baroda)</td><td>164.4km</td><td>2038</td></tr>
+							<tr><td>Rajkot</td><td>454.5km</td><td>8096</td></tr>
+							<tr><td>Junagadh</td><td>554.9km</td><td>9652</td></tr>
+							<tr><td>Bhavnagar</td><td>143km</td><td>5228</td></tr>
+							<tr><td>Jamnagar</td><td>545.8km</td><td>6858</td></tr>
+							<tr><td>Anand</td><td>207.5km</td><td>3529</td></tr>
+							<tr><td>Mehsana</td><td>364.1km</td><td>5463</td></tr>
+							<tr><td>Bharuch</td><td>85.2km</td><td>1565</td></tr>
+							<tr><td>Navsari</td><td>41.4km</td><td>1088</td></tr>
+							<tr><td>Morvi</td><td>476.9km</td><td>8183</td></tr>
+							<tr><td>Porbandar</td><td>635.3km</td><td>8986</td></tr>
+							<tr><td>Nadiad</td><td>229.9km</td><td>3553</td></tr>
+							<tr><td>Gandhidham</td><td>568.7km</td><td>11084</td></tr>
+				                </tbody>
+			            	</table>
+				</div>
+			</div>
+		</div>
+		<div id="VIA" class="tabcontent">
+			<div class="grid">
+				<div class="grid-container" >
+					<table>
+                				<thead>
+							<tr>
+								<th><div>City</div></th>
+								<th><div> Included kms</div> </th>
+								<th><div>Price</div></th>
+							</tr>
+						</thead>
+						<tbody>
+				                	<tr><td>Ahmedabad</td><td>106.4km</td><td>1221</td></tr>
+							<tr><td>Surat</td><td>155.8km</td><td>2135</td></tr>
+							<tr><td>Vadodara (Baroda)</td><td>6.7km</td><td>160.69</td></tr>
+					                <tr><td>Rajkot</td><td>283.1km</td><td>4378</td></tr>
+					                <tr><td>Junagadh</td><td>383.5km</td><td>6111</td></tr>
+							<tr><td>Bhavnagar</td><td>201.2km</td><td>3428</td></tr>
+							<tr><td>Jamnagar</td><td>374.4km</td><td>5195</td></tr>
+							<tr><td>Anand</td><td>43.4km</td><td>1147</td></tr>
+							<tr><td>Mehsana</td><td>187.2km</td><td>2822</td></tr>
+							<tr><td>Bharuch</td><td>88.1km</td><td>1620</td></tr>
+							<tr><td>Navsari</td><td>183.2km</td><td>3258</td></tr>
+							<tr><td>Morvi</td><td>305.5km</td><td>4980</td></tr>
+							<tr><td>Porbandar</td><td>463.9km</td><td>10755</td></tr>
+					                <tr><td>Nadiad</td><td>60.2km</td><td>1349</td></tr>
+							<tr><td>Gandhidham</td><td>391.8km</td><td>7404</td></tr>
+						</tbody>
+					</div>
+				</div>
+	            	</table>
+		</div>
+<script>
+function openAir(evt, Air) 
+{
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) 
+	{
+		tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("tablinks");
+	for (i = 0; i < tablinks.length; i++) 
+	{
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+	document.getElementById(Air).style.display = "block";
+	evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+	</div>
+</section>
+
+
+<!-- Ride Search Section 
+<section class="ride-search container">
+    <h2>Find a Ride</h2>
+    <input type="text" placeholder="Enter Pickup Location">
+    <input type="text" placeholder="Enter Destination">
+    <button class="btn">Search Rides</button>
+</section>
+-->
+
+<header>
+        	<h1>Why Choose Share-a-Cab ?</h1>
+</header>	
+<section class="container">
+        <div class="feature-box">
+            <i class="fas fa-car"></i>
+            <h4>Easy Ride Booking</h4>
+            <p>Find and book rides instantly with just a few clicks.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-users"></i>
+            <h4>Safe & Verified Users</h4>
+            <p>Travel with verified drivers and passengers for safety.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-dollar-sign"></i>
+            <h4>Affordable Pricing</h4>
+            <p>Save money by sharing your ride with others.</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-hourglass-half"></i>
+            <h4>On Time, Every Time</h4>
+            <p>Share-a-Cab guarantees timely rides, reduces delays, and ensures reliable travel 🚖⏳.</p>
+        </div>
+	<div class="feature-box">
+             <i class="fas fa-clock"></i>
+            <h4>No last minute cancellation</h4>
+            <p>Guaranteed rides with no last-minute cancellations, always reliable and punctual!🚖✅</p>
+        </div>
+	<div class="feature-box">
+             <i class="far fa-snowflake"></i>
+            <h4>Assured AC Rides</h4>
+            <p>Beat the heat with our always-on AC rides! 🌬️🚕</p>
+        </div>
+	<div class="feature-box">
+             <i class="fas fa-handshake"></i>
+            <h4>Courteous Drivers</h4>
+            <p>Polite drivers, smooth rides—your comfort is our priority! 😇🚖</p>
+        </div>
+	<div class="feature-box">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Dedicated Ride Tracking Executives</h4>
+            <p>Your ride, our watch—tracking for a safer journey! 🚖👀</p>
+        </div>
+
+    </section>
+<section class="testimonials">
+	<h2>What Our Users Say</h2>
+	<div class="feedback-container">
+        	<div class="feedback">
+	            <img src="images/user1.jpg" alt="User 1" class="user-img">
+        	    <div class="stars">★★★★★</div>
+	            <p>"Great service and support! Highly recommended."</p>
+        	</div>
+	        <div class="feedback">
+        	    <img src="images/user2.jpg" alt="User 2" class="user-img">
+	            <div class="stars">★★★★☆</div>
+        	    <p>"Great service! Would definitely recommend to others. It exceeded my expectations.I saved a lot on travel costs by using Share-a-Cab!."</p>
+	        </div>
+        	<div class="feedback">
+	            <img src="images/user3.jpg" alt="User 3" class="user-img">
+        	    <div class="stars">★★★★★</div>
+	            <p>"Amazing experience! Absolutely amazing! Worth every penny, and the customer service was top-notch.The ride booking process is super easy and convenient!"</p>
+        	</div>
+	    </div>
+</section>
+<!-- Testimonials Section -->
+
+
+<!-- Footer -->
+<footer class="footer">
+
+    <p>© 2025 Share-a-Cab. All rights reserved.</p>
+    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+</footer>
+
+<!-- FontAwesome for Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+ 
+</body>
+</html>
